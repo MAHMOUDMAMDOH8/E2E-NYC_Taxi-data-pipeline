@@ -50,11 +50,17 @@ transform_data.py:
 
 ## Database Schema 
 The transformed data is stored in a relational database with a star schema design, consisting of the following tables:
+
 1 Dim_vendor : Contains information about vendor id and vendor name
+
 2 Dim_rate : Contains information about rate id and rate name 
+
 3 dim_location : Contains information about location id , zone , Borough and service_zone 
+
 4 Dim_payment : Contains information about payment id and type
+
 5 dim_trip : Contains information about trip id and type
+
 6 Fact_trip : Contains information about VendorID  , lpep_pickup_datetime , lpep_dropoff_datetime , store_and_fwd_flag , RatecodeID  , PULocationID , DOLocationID  , passenger_count , trip_distance , fare_amount , extra , mta_tax , tip_amount , tolls_amount , ehail_fee , improvement_surcharge , total_amount , payment_type , trip_type and congestion_surcharge
 
 ![model](https://github.com/MAHMOUDMAMDOH8/E2E-NYC_Taxi-data-pipeline/assets/111503676/649b3dba-1fcd-47e6-8b6a-2a9f67d65be9)

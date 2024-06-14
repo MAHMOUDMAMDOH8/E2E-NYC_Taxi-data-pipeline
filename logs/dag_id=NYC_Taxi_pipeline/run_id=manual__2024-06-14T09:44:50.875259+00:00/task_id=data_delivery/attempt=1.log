@@ -1,0 +1,55 @@
+[2024-06-14T09:45:14.529+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-14T09:45:14.549+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: NYC_Taxi_pipeline.data_delivery manual__2024-06-14T09:44:50.875259+00:00 [queued]>
+[2024-06-14T09:45:14.557+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: NYC_Taxi_pipeline.data_delivery manual__2024-06-14T09:44:50.875259+00:00 [queued]>
+[2024-06-14T09:45:14.557+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-06-14T09:45:14.569+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): data_delivery> on 2024-06-14 09:44:50.875259+00:00
+[2024-06-14T09:45:14.575+0000] {standard_task_runner.py:63} INFO - Started process 102 to run task
+[2024-06-14T09:45:14.578+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'NYC_Taxi_pipeline', 'data_delivery', 'manual__2024-06-14T09:44:50.875259+00:00', '--job-id', '22', '--raw', '--subdir', 'DAGS_FOLDER/NYC_Taxi_pipeline.py', '--cfg-path', '/tmp/tmppv9qxeal']
+[2024-06-14T09:45:14.581+0000] {standard_task_runner.py:91} INFO - Job 22: Subtask data_delivery
+[2024-06-14T09:45:14.620+0000] {task_command.py:426} INFO - Running <TaskInstance: NYC_Taxi_pipeline.data_delivery manual__2024-06-14T09:44:50.875259+00:00 [running]> on host 762c91fd0326
+[2024-06-14T09:45:14.867+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Mahmoud' AIRFLOW_CTX_DAG_ID='NYC_Taxi_pipeline' AIRFLOW_CTX_TASK_ID='data_delivery' AIRFLOW_CTX_EXECUTION_DATE='2024-06-14T09:44:50.875259+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-14T09:44:50.875259+00:00'
+[2024-06-14T09:45:14.867+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-14T09:45:14.877+0000] {NYC_Taxi_pipeline.py:54} INFO - data_delivery started
+[2024-06-14T09:45:14.878+0000] {Load_Data.py:19} INFO - loading location Dimension ...
+[2024-06-14T09:45:14.882+0000] {Table_creation.py:30} INFO - Loading data into table DimLocation...
+[2024-06-14T09:45:14.885+0000] {db_utils.py:21} INFO - Connected to PostgreSQL database successfully
+[2024-06-14T09:45:14.955+0000] {Table_creation.py:45} INFO - Data loaded successfully into table DimLocation With 265 Row
+[2024-06-14T09:45:14.955+0000] {db_utils.py:30} INFO - PostgreSQL connection is closed
+[2024-06-14T09:45:14.956+0000] {Load_Data.py:22} INFO - DimLocation_df dimension loaded successfully
+[2024-06-14T09:45:14.956+0000] {Load_Data.py:28} INFO - loading DimRate Dimension ...
+[2024-06-14T09:45:14.958+0000] {Table_creation.py:30} INFO - Loading data into table DimRate...
+[2024-06-14T09:45:14.961+0000] {db_utils.py:21} INFO - Connected to PostgreSQL database successfully
+[2024-06-14T09:45:14.967+0000] {Table_creation.py:45} INFO - Data loaded successfully into table DimRate With 6 Row
+[2024-06-14T09:45:14.968+0000] {db_utils.py:30} INFO - PostgreSQL connection is closed
+[2024-06-14T09:45:14.968+0000] {Load_Data.py:31} INFO - DimRate_df dimension loaded successfully
+[2024-06-14T09:45:14.968+0000] {Load_Data.py:46} INFO - loading payment dimension....
+[2024-06-14T09:45:14.970+0000] {Table_creation.py:30} INFO - Loading data into table DimPayment...
+[2024-06-14T09:45:14.973+0000] {db_utils.py:21} INFO - Connected to PostgreSQL database successfully
+[2024-06-14T09:45:14.979+0000] {Table_creation.py:45} INFO - Data loaded successfully into table DimPayment With 6 Row
+[2024-06-14T09:45:14.979+0000] {db_utils.py:30} INFO - PostgreSQL connection is closed
+[2024-06-14T09:45:14.979+0000] {Load_Data.py:49} INFO - payment_df dimension loaded successfully
+[2024-06-14T09:45:14.979+0000] {Load_Data.py:10} INFO - loading vendor Dimension ...
+[2024-06-14T09:45:14.981+0000] {Table_creation.py:30} INFO - Loading data into table DimVendor...
+[2024-06-14T09:45:14.984+0000] {db_utils.py:21} INFO - Connected to PostgreSQL database successfully
+[2024-06-14T09:45:14.989+0000] {Table_creation.py:45} INFO - Data loaded successfully into table DimVendor With 2 Row
+[2024-06-14T09:45:14.989+0000] {db_utils.py:30} INFO - PostgreSQL connection is closed
+[2024-06-14T09:45:14.989+0000] {Load_Data.py:13} INFO - vendor_df dimension loaded successfully
+[2024-06-14T09:45:14.989+0000] {Load_Data.py:37} INFO - loading trip_type dimension....
+[2024-06-14T09:45:14.991+0000] {Table_creation.py:30} INFO - Loading data into table DimTrip_type...
+[2024-06-14T09:45:14.995+0000] {db_utils.py:21} INFO - Connected to PostgreSQL database successfully
+[2024-06-14T09:45:15.000+0000] {Table_creation.py:45} INFO - Data loaded successfully into table DimTrip_type With 2 Row
+[2024-06-14T09:45:15.000+0000] {db_utils.py:30} INFO - PostgreSQL connection is closed
+[2024-06-14T09:45:15.000+0000] {Load_Data.py:40} INFO - trip_df dimension loaded successfully
+[2024-06-14T09:45:15.000+0000] {Load_Data.py:55} INFO - loading fact table ....
+[2024-06-14T09:45:21.700+0000] {Table_creation.py:30} INFO - Loading data into table Fact_Trip...
+[2024-06-14T09:45:21.703+0000] {db_utils.py:21} INFO - Connected to PostgreSQL database successfully
+[2024-06-14T09:50:47.320+0000] {Table_creation.py:45} INFO - Data loaded successfully into table Fact_Trip With 1143729 Row
+[2024-06-14T09:50:47.320+0000] {db_utils.py:30} INFO - PostgreSQL connection is closed
+[2024-06-14T09:50:57.003+0000] {Load_Data.py:77} INFO - Fact_df  loaded successfully
+[2024-06-14T09:50:57.073+0000] {NYC_Taxi_pipeline.py:61} INFO - data_delivery done
+[2024-06-14T09:50:57.074+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-06-14T09:50:57.074+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-14T09:50:57.083+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=NYC_Taxi_pipeline, task_id=data_delivery, run_id=manual__2024-06-14T09:44:50.875259+00:00, execution_date=20240614T094450, start_date=20240614T094514, end_date=20240614T095057
+[2024-06-14T09:50:57.110+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-14T09:50:57.125+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-14T09:50:57.126+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

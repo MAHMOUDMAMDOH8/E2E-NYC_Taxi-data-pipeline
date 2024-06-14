@@ -1,0 +1,53 @@
+[2024-06-14T09:08:11.840+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-14T09:08:11.959+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: NYC_Taxi_pipeline.data_delivery manual__2024-06-14T09:06:28.580650+00:00 [queued]>
+[2024-06-14T09:08:12.034+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: NYC_Taxi_pipeline.data_delivery manual__2024-06-14T09:06:28.580650+00:00 [queued]>
+[2024-06-14T09:08:12.034+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-06-14T09:08:12.113+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): data_delivery> on 2024-06-14 09:06:28.580650+00:00
+[2024-06-14T09:08:12.122+0000] {standard_task_runner.py:63} INFO - Started process 84 to run task
+[2024-06-14T09:08:12.125+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'NYC_Taxi_pipeline', 'data_delivery', 'manual__2024-06-14T09:06:28.580650+00:00', '--job-id', '16', '--raw', '--subdir', 'DAGS_FOLDER/NYC_Taxi_pipeline.py', '--cfg-path', '/tmp/tmp2brkbcau']
+[2024-06-14T09:08:12.128+0000] {standard_task_runner.py:91} INFO - Job 16: Subtask data_delivery
+[2024-06-14T09:08:12.219+0000] {task_command.py:426} INFO - Running <TaskInstance: NYC_Taxi_pipeline.data_delivery manual__2024-06-14T09:06:28.580650+00:00 [running]> on host 762c91fd0326
+[2024-06-14T09:08:12.669+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Mahmoud' AIRFLOW_CTX_DAG_ID='NYC_Taxi_pipeline' AIRFLOW_CTX_TASK_ID='data_delivery' AIRFLOW_CTX_EXECUTION_DATE='2024-06-14T09:06:28.580650+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-14T09:06:28.580650+00:00'
+[2024-06-14T09:08:12.670+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-14T09:08:12.681+0000] {NYC_Taxi_pipeline.py:54} INFO - data_delivery started
+[2024-06-14T09:08:12.681+0000] {Load_Data.py:19} INFO - loading location Dimension ...
+[2024-06-14T09:08:12.690+0000] {Table_creation.py:30} INFO - Loading data into table DimLocation...
+[2024-06-14T09:08:12.693+0000] {db_utils.py:21} INFO - Connected to PostgreSQL database successfully
+[2024-06-14T09:08:12.993+0000] {Table_creation.py:45} INFO - Data loaded successfully into table DimLocation With 265 Row
+[2024-06-14T09:08:12.994+0000] {db_utils.py:30} INFO - PostgreSQL connection is closed
+[2024-06-14T09:08:12.994+0000] {Load_Data.py:22} INFO - DimLocation_df dimension loaded successfully
+[2024-06-14T09:08:12.994+0000] {Load_Data.py:28} INFO - loading DimRate Dimension ...
+[2024-06-14T09:08:12.996+0000] {Table_creation.py:30} INFO - Loading data into table DimVendor...
+[2024-06-14T09:08:12.999+0000] {db_utils.py:21} INFO - Connected to PostgreSQL database successfully
+[2024-06-14T09:08:13.068+0000] {Load_Data.py:33} INFO - Error loading DimRate dimension: column "ratecodeid" of relation "dimvendor" does not exist
+LINE 1: INSERT INTO DimVendor (RatecodeID, Rate_name) VALUES (1, 'St...
+                               ^
+
+[2024-06-14T09:08:13.069+0000] {Load_Data.py:46} INFO - loading payment dimension....
+[2024-06-14T09:08:13.071+0000] {Table_creation.py:30} INFO - Loading data into table DimPayment...
+[2024-06-14T09:08:13.104+0000] {db_utils.py:21} INFO - Connected to PostgreSQL database successfully
+[2024-06-14T09:08:13.241+0000] {Table_creation.py:45} INFO - Data loaded successfully into table DimPayment With 6 Row
+[2024-06-14T09:08:13.242+0000] {db_utils.py:30} INFO - PostgreSQL connection is closed
+[2024-06-14T09:08:13.242+0000] {Load_Data.py:49} INFO - payment_df dimension loaded successfully
+[2024-06-14T09:08:13.242+0000] {Load_Data.py:10} INFO - loading vendor Dimension ...
+[2024-06-14T09:08:13.245+0000] {Table_creation.py:30} INFO - Loading data into table DimVendor...
+[2024-06-14T09:08:13.248+0000] {db_utils.py:21} INFO - Connected to PostgreSQL database successfully
+[2024-06-14T09:08:13.408+0000] {Table_creation.py:45} INFO - Data loaded successfully into table DimVendor With 2 Row
+[2024-06-14T09:08:13.408+0000] {db_utils.py:30} INFO - PostgreSQL connection is closed
+[2024-06-14T09:08:13.408+0000] {Load_Data.py:13} INFO - vendor_df dimension loaded successfully
+[2024-06-14T09:08:13.408+0000] {Load_Data.py:37} INFO - loading trip_type dimension....
+[2024-06-14T09:08:13.412+0000] {Table_creation.py:30} INFO - Loading data into table DimTrip_type...
+[2024-06-14T09:08:13.417+0000] {db_utils.py:21} INFO - Connected to PostgreSQL database successfully
+[2024-06-14T09:08:13.519+0000] {Table_creation.py:45} INFO - Data loaded successfully into table DimTrip_type With 2 Row
+[2024-06-14T09:08:13.520+0000] {db_utils.py:30} INFO - PostgreSQL connection is closed
+[2024-06-14T09:08:13.520+0000] {Load_Data.py:40} INFO - trip_df dimension loaded successfully
+[2024-06-14T09:08:13.521+0000] {Load_Data.py:55} INFO - loading fact table ....
+[2024-06-14T09:08:52.473+0000] {Table_creation.py:30} INFO - Loading data into table Fact_Trip...
+[2024-06-14T09:08:52.477+0000] {db_utils.py:21} INFO - Connected to PostgreSQL database successfully
+[2024-06-14T09:14:03.764+0000] {local_task_job_runner.py:310} WARNING - State of this instance has been externally set to failed. Terminating instance.
+[2024-06-14T09:14:03.766+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-14T09:14:03.768+0000] {process_utils.py:132} INFO - Sending 15 to group 84. PIDs of all processes in the group: [84]
+[2024-06-14T09:14:03.769+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 84
+[2024-06-14T09:14:03.769+0000] {taskinstance.py:2611} ERROR - Received SIGTERM. Terminating subprocesses.
+[2024-06-14T09:14:03.824+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-14T09:14:05.278+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=84, status='terminated', exitcode=0, started='09:08:11') (84) terminated with exit code 0

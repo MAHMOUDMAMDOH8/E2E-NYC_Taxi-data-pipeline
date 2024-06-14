@@ -1,0 +1,74 @@
+[2024-06-14T08:13:35.294+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-14T08:13:35.314+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: NYC_Taxi_pipeline.data_extraction scheduled__2024-06-13T00:00:00+00:00 [queued]>
+[2024-06-14T08:13:35.321+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: NYC_Taxi_pipeline.data_extraction scheduled__2024-06-13T00:00:00+00:00 [queued]>
+[2024-06-14T08:13:35.321+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-06-14T08:13:35.332+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): data_extraction> on 2024-06-13 00:00:00+00:00
+[2024-06-14T08:13:35.339+0000] {standard_task_runner.py:63} INFO - Started process 54 to run task
+[2024-06-14T08:13:35.341+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'NYC_Taxi_pipeline', 'data_extraction', 'scheduled__2024-06-13T00:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/NYC_Taxi_pipeline.py', '--cfg-path', '/tmp/tmp_lzizro6']
+[2024-06-14T08:13:35.343+0000] {standard_task_runner.py:91} INFO - Job 6: Subtask data_extraction
+[2024-06-14T08:13:35.384+0000] {task_command.py:426} INFO - Running <TaskInstance: NYC_Taxi_pipeline.data_extraction scheduled__2024-06-13T00:00:00+00:00 [running]> on host 762c91fd0326
+[2024-06-14T08:13:35.597+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Mahmoud' AIRFLOW_CTX_DAG_ID='NYC_Taxi_pipeline' AIRFLOW_CTX_TASK_ID='data_extraction' AIRFLOW_CTX_EXECUTION_DATE='2024-06-13T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-13T00:00:00+00:00'
+[2024-06-14T08:13:35.598+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-14T08:13:35.608+0000] {NYC_Taxi_pipeline.py:45} INFO - data_extraction started
+[2024-06-14T08:13:35.608+0000] {Transfrom_data.py:8} INFO - start for transforming data ......
+[2024-06-14T08:13:36.495+0000] {warnings.py:109} WARNING - /opt/***/dags/scripts/Transfrom_data.py:14: DtypeWarning: Columns (3) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(file)
+
+[2024-06-14T08:13:37.198+0000] {warnings.py:109} WARNING - /opt/***/dags/scripts/Transfrom_data.py:14: DtypeWarning: Columns (3) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(file)
+
+[2024-06-14T08:13:38.288+0000] {warnings.py:109} WARNING - /opt/***/dags/scripts/Transfrom_data.py:14: DtypeWarning: Columns (3) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(file)
+
+[2024-06-14T08:13:38.749+0000] {warnings.py:109} WARNING - /opt/***/dags/scripts/Transfrom_data.py:14: DtypeWarning: Columns (3) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(file)
+
+[2024-06-14T08:13:39.029+0000] {warnings.py:109} WARNING - /opt/***/dags/scripts/Transfrom_data.py:14: DtypeWarning: Columns (3) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(file)
+
+[2024-06-14T08:13:44.474+0000] {warnings.py:109} WARNING - /opt/***/dags/scripts/Transfrom_data.py:14: DtypeWarning: Columns (3) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(file)
+
+[2024-06-14T08:13:45.829+0000] {warnings.py:109} WARNING - /opt/***/dags/scripts/Transfrom_data.py:14: DtypeWarning: Columns (3) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(file)
+
+[2024-06-14T08:13:48.954+0000] {warnings.py:109} WARNING - /opt/***/dags/scripts/Transfrom_data.py:14: DtypeWarning: Columns (3) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(file)
+
+[2024-06-14T08:13:51.183+0000] {warnings.py:109} WARNING - /opt/***/dags/scripts/Transfrom_data.py:14: DtypeWarning: Columns (3) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(file)
+
+[2024-06-14T08:13:51.430+0000] {warnings.py:109} WARNING - /opt/***/dags/scripts/Transfrom_data.py:14: DtypeWarning: Columns (3) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(file)
+
+[2024-06-14T08:13:51.548+0000] {warnings.py:109} WARNING - /opt/***/dags/scripts/Transfrom_data.py:14: DtypeWarning: Columns (3) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(file)
+
+[2024-06-14T08:13:52.376+0000] {warnings.py:109} WARNING - /opt/***/dags/scripts/Transfrom_data.py:14: DtypeWarning: Columns (3) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(file)
+
+[2024-06-14T08:13:55.152+0000] {warnings.py:109} WARNING - /opt/***/dags/scripts/Transfrom_data.py:14: DtypeWarning: Columns (3) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(file)
+
+[2024-06-14T08:13:55.712+0000] {warnings.py:109} WARNING - /opt/***/dags/scripts/Transfrom_data.py:14: DtypeWarning: Columns (3) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(file)
+
+[2024-06-14T08:13:55.876+0000] {warnings.py:109} WARNING - /opt/***/dags/scripts/Transfrom_data.py:14: DtypeWarning: Columns (3) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(file)
+
+[2024-06-14T08:13:56.083+0000] {warnings.py:109} WARNING - /opt/***/dags/scripts/Transfrom_data.py:14: DtypeWarning: Columns (3) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(file)
+
+[2024-06-14T08:13:57.056+0000] {warnings.py:109} WARNING - /opt/***/dags/scripts/Transfrom_data.py:14: DtypeWarning: Columns (3) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(file)
+
+[2024-06-14T08:13:57.390+0000] {Transfrom_data.py:44} INFO - Storing of rejected_df completed successfully
+[2024-06-14T08:15:00.298+0000] {Transfrom_data.py:50} INFO - Storing of valid_df completed successfully
+[2024-06-14T08:15:00.298+0000] {Transfrom_data.py:52} INFO - Process of trip data completed successfully
+[2024-06-14T08:15:00.744+0000] {NYC_Taxi_pipeline.py:47} INFO - data_extraction done
+[2024-06-14T08:15:00.744+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-06-14T08:15:00.745+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-14T08:15:00.753+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=NYC_Taxi_pipeline, task_id=data_extraction, run_id=scheduled__2024-06-13T00:00:00+00:00, execution_date=20240613T000000, start_date=20240614T081335, end_date=20240614T081500
+[2024-06-14T08:15:00.805+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-14T08:15:00.823+0000] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-06-14T08:15:00.824+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -14,7 +14,8 @@ def process_Trip_Data():
         df = pd.read_csv(file)
 
         # Define conditions 
-        df = df[(df['passenger_count'] > 0) & (df['trip_distance'] > 0)]
+        passenger_countdf = df['passenger_count'] > 0
+        trip_distancedf  = df['trip_distance'] > 0
         Vendor_conditions = df['VendorID'].isin([1, 2])
         Rate_condition = df['RatecodeID'].between(1,6)
         Payment_conditions = df['payment_type'].between(1,4)
@@ -22,7 +23,7 @@ def process_Trip_Data():
         PULLocation_conditions = df['PULocationID'].between(1, 265)
         dropLocation_conditions = df['DOLocationID'].between(1, 265)
 
-        valid_rows = Vendor_conditions & Rate_condition & Payment_conditions & Trip_conditions & PULLocation_conditions & dropLocation_conditions
+        valid_rows = passenger_countdf & trip_distancedf& Vendor_conditions & Rate_condition & Payment_conditions & Trip_conditions & PULLocation_conditions & dropLocation_conditions 
 
         rejected = df[~valid_rows]
         accepted = df[valid_rows]

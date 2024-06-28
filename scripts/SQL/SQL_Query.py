@@ -26,15 +26,15 @@ CREATE TABLE IF NOT EXISTS DimPayment(
 
 create_DimLocation = """
 CREATE TABLE IF NOT EXISTS DimLocation(
-        LocationID int ,
-        Borough varchar(225) ,
-        Zone varchar(225),
+        locationid int ,
+        borough varchar(225) ,
+        zone varchar(225),
         service_zone varchar(225),
         start_date DATE,
         end_date DATE,
         active_flag CHAR(1),
         version INT,
-        PRIMARY KEY (LocationID, version) 
+        PRIMARY KEY (locationid, version) 
 )
 """
 

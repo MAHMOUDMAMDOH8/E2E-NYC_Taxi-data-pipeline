@@ -1,0 +1,51 @@
+[2024-06-28T13:39:21.771+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-28T13:39:21.791+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: NYC_Taxi_pipeline.data_delivery scheduled__2024-06-27T00:00:00+00:00 [queued]>
+[2024-06-28T13:39:21.798+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: NYC_Taxi_pipeline.data_delivery scheduled__2024-06-27T00:00:00+00:00 [queued]>
+[2024-06-28T13:39:21.798+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-06-28T13:39:21.813+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): data_delivery> on 2024-06-27 00:00:00+00:00
+[2024-06-28T13:39:21.820+0000] {standard_task_runner.py:63} INFO - Started process 57 to run task
+[2024-06-28T13:39:21.822+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'NYC_Taxi_pipeline', 'data_delivery', 'scheduled__2024-06-27T00:00:00+00:00', '--job-id', '29', '--raw', '--subdir', 'DAGS_FOLDER/NYC_Taxi_pipeline.py', '--cfg-path', '/tmp/tmpdu53a3mv']
+[2024-06-28T13:39:21.826+0000] {standard_task_runner.py:91} INFO - Job 29: Subtask data_delivery
+[2024-06-28T13:39:21.868+0000] {task_command.py:426} INFO - Running <TaskInstance: NYC_Taxi_pipeline.data_delivery scheduled__2024-06-27T00:00:00+00:00 [running]> on host 79a59ce16f65
+[2024-06-28T13:39:22.122+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Mahmoud' AIRFLOW_CTX_DAG_ID='NYC_Taxi_pipeline' AIRFLOW_CTX_TASK_ID='data_delivery' AIRFLOW_CTX_EXECUTION_DATE='2024-06-27T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-27T00:00:00+00:00'
+[2024-06-28T13:39:22.123+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-28T13:39:22.137+0000] {NYC_Taxi_pipeline.py:54} INFO - data_delivery started
+[2024-06-28T13:39:22.137+0000] {Load_Data.py:73} INFO - Loading location Dimension ...
+[2024-06-28T13:39:22.148+0000] {db_utils.py:21} INFO - Connected to PostgreSQL database successfully
+[2024-06-28T13:39:22.149+0000] {Load_Data.py:141} INFO - Error loading location dimension: column "active_flag" does not exist
+LINE 1: SELECT * FROM DimLocation WHERE active_flag = 'Y'
+                                        ^
+
+[2024-06-28T13:39:22.150+0000] {Load_Data.py:145} INFO - loading DimRate Dimension ...
+[2024-06-28T13:39:22.152+0000] {Table_creation.py:30} INFO - Loading data into table DimRate...
+[2024-06-28T13:39:22.155+0000] {db_utils.py:21} INFO - Connected to PostgreSQL database successfully
+[2024-06-28T13:39:22.157+0000] {Load_Data.py:150} INFO - Error loading DimRate dimension: duplicate key value violates unique constraint "dimrate_pkey"
+DETAIL:  Key (ratecodeid)=(1) already exists.
+
+[2024-06-28T13:39:22.158+0000] {Load_Data.py:163} INFO - loading payment dimension....
+[2024-06-28T13:39:22.160+0000] {Table_creation.py:30} INFO - Loading data into table DimPayment...
+[2024-06-28T13:39:22.164+0000] {db_utils.py:21} INFO - Connected to PostgreSQL database successfully
+[2024-06-28T13:39:22.165+0000] {Load_Data.py:168} INFO - Error loading payment dimension: duplicate key value violates unique constraint "dimpayment_pkey"
+DETAIL:  Key (payment_id)=(1) already exists.
+
+[2024-06-28T13:39:22.166+0000] {Load_Data.py:11} INFO - Loading vendor Dimension ...
+[2024-06-28T13:39:22.171+0000] {db_utils.py:21} INFO - Connected to PostgreSQL database successfully
+[2024-06-28T13:39:22.172+0000] {Load_Data.py:69} INFO - Error loading vendor dimension: column "active_flag" does not exist
+LINE 1: SELECT * FROM DimVendor WHERE active_flag = 'Y'
+                                      ^
+
+[2024-06-28T13:39:22.173+0000] {Load_Data.py:154} INFO - loading trip_type dimension....
+[2024-06-28T13:39:22.178+0000] {Table_creation.py:30} INFO - Loading data into table DimTrip_type...
+[2024-06-28T13:39:22.182+0000] {db_utils.py:21} INFO - Connected to PostgreSQL database successfully
+[2024-06-28T13:39:22.184+0000] {Load_Data.py:159} INFO - Error loading trip dimension: duplicate key value violates unique constraint "dimtrip_type_pkey"
+DETAIL:  Key (trip_type_id)=(1) already exists.
+
+[2024-06-28T13:39:22.184+0000] {Load_Data.py:172} INFO - loading fact table ....
+[2024-06-28T13:39:22.185+0000] {Load_Data.py:196} INFO - Error loading  fact table: [Errno 2] No such file or directory: './datalake/silver/FactTrip.csv'
+[2024-06-28T13:39:22.185+0000] {NYC_Taxi_pipeline.py:61} INFO - data_delivery done
+[2024-06-28T13:39:22.185+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-06-28T13:39:22.186+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-28T13:39:22.199+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=NYC_Taxi_pipeline, task_id=data_delivery, run_id=scheduled__2024-06-27T00:00:00+00:00, execution_date=20240627T000000, start_date=20240628T133921, end_date=20240628T133922
+[2024-06-28T13:39:22.235+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-28T13:39:22.257+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-28T13:39:22.259+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

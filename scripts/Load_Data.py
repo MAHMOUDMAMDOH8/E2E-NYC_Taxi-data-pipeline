@@ -1,7 +1,7 @@
 from Table_creation import *
 import pandas as pd
 import logging
-import datetime as datetime
+from datetime import datetime
 
 logging.basicConfig(filename='data_delivery.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -10,6 +10,7 @@ def load_dimVendor(host,db_name,user,password):
     try:
         logging.info('Loading vendor Dimension ...')
         vendor_df = pd.read_csv('./datalake/silver/Dimvendor.csv')
+        current_date = datetime.now().date()
         
         # Connect to the database
         conn = create_connection(host, db_name, user, password)
@@ -43,7 +44,7 @@ def load_dimVendor(host,db_name,user,password):
                     new_records.append({
                         'vendor_id': row['vendor_id'],
                         'vendor_name': row['vendor_name'],
-                        'start_date': row['load_date'],
+                        'start_date': current_date,
                         'end_date': None,
                         'active_flag': 'Y',
                         'version': existing_record['version'] + 1
@@ -52,7 +53,7 @@ def load_dimVendor(host,db_name,user,password):
                 new_records.append({
                     'vendor_id': row['vendor_id'],
                     'vendor_name': row['vendor_name'],
-                    'start_date': row['load_date'],
+                    'start_date':current_date,
                     'end_date': None,
                     'active_flag': 'Y',
                     'version': 1
@@ -72,7 +73,9 @@ def load_DimLocation(host, db_name, user, password):
     try:
         logging.info('Loading location Dimension ...')
         DimLocation_df = pd.read_csv('./datalake/silver/DimLocation.csv')
-        
+        current_date = datetime.now().date()
+        DimLocation_df.columns = DimLocation_df.columns.str.lower()
+
         # Connect to the database
         conn = create_connection(host, db_name, user, password)
         if not conn:
@@ -85,12 +88,13 @@ def load_DimLocation(host, db_name, user, password):
         existing_records = cursor.fetchall()
         columns = [desc[0] for desc in cursor.description]
         existing_df = pd.DataFrame(existing_records, columns=columns)
+        logging.info(f"Existing records columns: {existing_df.columns.tolist()}")
 
         new_records = []
 
         for i, row in DimLocation_df.iterrows():
             # Check if the record exists and is active
-            existing_record = existing_df[(existing_df['LocationID'] == row['LocationID']) & (existing_df['active_flag'] == 'Y')]
+            existing_record = existing_df[(existing_df['locationid'] == row['locationid']) & (existing_df['active_flag'] == 'Y')]
 
             if not existing_record.empty:
                 existing_record = existing_record.iloc[0]
@@ -103,16 +107,16 @@ def load_DimLocation(host, db_name, user, password):
                     cursor.execute(f"""
                         UPDATE DimLocation
                         SET end_date = %s, active_flag = 'N'
-                        WHERE LocationID = %s AND active_flag = 'Y'
-                    """, (row['start_date'], row['LocationID']))
+                        WHERE locationid = %s AND active_flag = 'Y'
+                    """, (row['start_date'], row['locationid']))
 
                     # Prepare the new version of the record
                     new_records.append({
-                        'LocationID': row['LocationID'],
-                        'Borough': row['Borough'],
-                        'Zone': row['Zone'],
+                        'locationid': row['LocationID'],
+                        'borough': row['Borough'],
+                        'zone': row['Zone'],
                         'service_zone': row['service_zone'],
-                        'start_date': row['start_date'],
+                        'start_date': current_date,
                         'end_date': None,
                         'active_flag': 'Y',
                         'version': existing_record['version'] + 1
@@ -120,11 +124,11 @@ def load_DimLocation(host, db_name, user, password):
             else:
                 # Prepare the new record
                 new_records.append({
-                    'LocationID': row['LocationID'],
-                    'Borough': row['Borough'],
-                    'Zone': row['Zone'],
+                    'locationid': row['LocationID'],
+                    'borough': row['Borough'],
+                    'zone': row['Zone'],
                     'service_zone': row['service_zone'],
-                    'start_date': row['start_date'],
+                    'start_date': current_date,
                     'end_date': None,
                     'active_flag': 'Y',
                     'version': 1
@@ -133,7 +137,7 @@ def load_DimLocation(host, db_name, user, password):
         # Insert all new records
         if new_records:
             new_records_df = pd.DataFrame(new_records)
-            load_to_postres("DimLocation", new_records_df, host, db_name, user, password, append=True)
+            load_to_postres("DimLocation", new_records_df, host, db_name, user, password)
 
         logging.info('DimLocation dimension loaded successfully')
         close_connection(conn)

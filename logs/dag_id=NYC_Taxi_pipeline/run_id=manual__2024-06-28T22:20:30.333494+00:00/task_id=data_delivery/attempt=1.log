@@ -1,0 +1,320 @@
+[2024-06-28T22:20:34.391+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-28T22:20:34.416+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: NYC_Taxi_pipeline.data_delivery manual__2024-06-28T22:20:30.333494+00:00 [queued]>
+[2024-06-28T22:20:34.427+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: NYC_Taxi_pipeline.data_delivery manual__2024-06-28T22:20:30.333494+00:00 [queued]>
+[2024-06-28T22:20:34.427+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-06-28T22:20:34.441+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): data_delivery> on 2024-06-28 22:20:30.333494+00:00
+[2024-06-28T22:20:34.449+0000] {standard_task_runner.py:63} INFO - Started process 439 to run task
+[2024-06-28T22:20:34.452+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'NYC_Taxi_pipeline', 'data_delivery', 'manual__2024-06-28T22:20:30.333494+00:00', '--job-id', '155', '--raw', '--subdir', 'DAGS_FOLDER/NYC_Taxi_pipeline.py', '--cfg-path', '/tmp/tmpnimqaote']
+[2024-06-28T22:20:34.455+0000] {standard_task_runner.py:91} INFO - Job 155: Subtask data_delivery
+[2024-06-28T22:20:34.502+0000] {task_command.py:426} INFO - Running <TaskInstance: NYC_Taxi_pipeline.data_delivery manual__2024-06-28T22:20:30.333494+00:00 [running]> on host 79a59ce16f65
+[2024-06-28T22:20:34.763+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Mahmoud' AIRFLOW_CTX_DAG_ID='NYC_Taxi_pipeline' AIRFLOW_CTX_TASK_ID='data_delivery' AIRFLOW_CTX_EXECUTION_DATE='2024-06-28T22:20:30.333494+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-28T22:20:30.333494+00:00'
+[2024-06-28T22:20:34.764+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-28T22:20:34.775+0000] {NYC_Taxi_pipeline.py:54} INFO - data_delivery started
+[2024-06-28T22:20:34.776+0000] {Load_Data.py:20} INFO - Loading location Dimension ...
+[2024-06-28T22:20:34.784+0000] {db_utils.py:21} INFO - Connected to PostgreSQL database successfully
+[2024-06-28T22:20:34.787+0000] {Load_Data.py:36} INFO - Existing records columns: ['locationid', 'borough', 'zone', 'service_zone', 'start_date', 'end_date', 'active_flag', 'version']
+[2024-06-28T22:20:34.882+0000] {Table_creation.py:51} INFO - Loading data into table DimLocation...
+[2024-06-28T22:20:34.885+0000] {db_utils.py:21} INFO - Connected to PostgreSQL database successfully
+[2024-06-28T22:20:34.887+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.888+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.889+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.890+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.891+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.891+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.892+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.893+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.893+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.894+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.895+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.895+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.896+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.896+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.897+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.897+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.898+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.898+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.899+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.899+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.900+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.900+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.900+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.901+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.901+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.902+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.902+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.903+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.904+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.904+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.905+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.905+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.906+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.907+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.907+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.908+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.908+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.909+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.910+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.910+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.911+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.911+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.912+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.912+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.913+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.913+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.914+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.914+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.914+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.915+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.915+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.916+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.916+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.917+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.917+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.917+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.918+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.918+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.919+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.919+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.919+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.920+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.921+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.921+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.922+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.922+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.923+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.923+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.923+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.924+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.924+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.925+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.925+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.926+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.926+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.926+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.927+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.927+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.927+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.928+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.928+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.928+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.929+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.929+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.929+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.930+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.930+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.931+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.931+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.931+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.932+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.932+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.932+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.933+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.933+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.933+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.934+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.934+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.934+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.935+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.935+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.935+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.936+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.937+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.937+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.938+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.938+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.939+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.939+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.940+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.940+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.941+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.941+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.942+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.942+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.943+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.944+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.944+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.945+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.945+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.945+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.946+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.946+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.946+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.947+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.947+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.948+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.948+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.948+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.949+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.949+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.950+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.950+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.950+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.951+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.951+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.952+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.952+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.953+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.953+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.954+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.954+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.955+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.955+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.956+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.957+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.957+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.958+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.959+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.959+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.960+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.960+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.961+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.961+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.961+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.962+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.962+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.963+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.963+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.964+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.964+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.964+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.965+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.965+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.965+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.966+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.966+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.967+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.967+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.967+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.968+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.968+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.968+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.969+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.969+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.969+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.970+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.971+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.972+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.972+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.973+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.974+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.974+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.975+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.975+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.976+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.976+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.977+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.977+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.977+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.978+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.978+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.978+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.979+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.979+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.979+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.980+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.980+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.981+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.981+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.981+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.982+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.982+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.982+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.983+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.983+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.983+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.984+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.984+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.984+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.985+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.985+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.985+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.986+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.986+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.986+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.987+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.988+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.988+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.988+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.989+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.989+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.990+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.991+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.991+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.992+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.992+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.993+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.993+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.993+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.994+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.994+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.994+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.995+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.995+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.995+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.996+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.996+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.996+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.997+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.997+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.998+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.998+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.998+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.999+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.999+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:34.999+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:35.000+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:35.000+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:35.000+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:35.001+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:35.001+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:35.001+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:35.002+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:35.002+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:35.002+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:35.003+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:35.003+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:35.004+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:35.004+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:35.005+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:35.005+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:35.005+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:35.006+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:35.007+0000] {Table_creation.py:64} INFO - insert new row to dimlocation
+[2024-06-28T22:20:35.008+0000] {Table_creation.py:66} INFO - Data loaded successfully into table DimLocation With 265 Row
+[2024-06-28T22:20:35.008+0000] {db_utils.py:30} INFO - PostgreSQL connection is closed
+[2024-06-28T22:20:35.009+0000] {Load_Data.py:89} INFO - DimLocation dimension loaded successfully
+[2024-06-28T22:20:35.009+0000] {db_utils.py:30} INFO - PostgreSQL connection is closed
+[2024-06-28T22:20:35.009+0000] {Load_Data.py:97} INFO - loading DimRate Dimension ...
+[2024-06-28T22:20:35.011+0000] {Table_creation.py:30} INFO - Loading data into table DimRate...
+[2024-06-28T22:20:35.014+0000] {db_utils.py:21} INFO - Connected to PostgreSQL database successfully
+[2024-06-28T22:20:35.020+0000] {Table_creation.py:45} INFO - Data loaded successfully into table DimRate With 6 Row
+[2024-06-28T22:20:35.020+0000] {db_utils.py:30} INFO - PostgreSQL connection is closed
+[2024-06-28T22:20:35.020+0000] {Load_Data.py:100} INFO - DimRate_df dimension loaded successfully
+[2024-06-28T22:20:35.021+0000] {Load_Data.py:115} INFO - loading payment dimension....
+[2024-06-28T22:20:35.023+0000] {Table_creation.py:30} INFO - Loading data into table DimPayment...
+[2024-06-28T22:20:35.027+0000] {db_utils.py:21} INFO - Connected to PostgreSQL database successfully
+[2024-06-28T22:20:35.033+0000] {Table_creation.py:45} INFO - Data loaded successfully into table DimPayment With 6 Row
+[2024-06-28T22:20:35.033+0000] {db_utils.py:30} INFO - PostgreSQL connection is closed
+[2024-06-28T22:20:35.033+0000] {Load_Data.py:118} INFO - payment_df dimension loaded successfully
+[2024-06-28T22:20:35.033+0000] {Load_Data.py:11} INFO - loading Dimvendor Dimension ...
+[2024-06-28T22:20:35.035+0000] {Table_creation.py:30} INFO - Loading data into table DimVendor...
+[2024-06-28T22:20:35.038+0000] {db_utils.py:21} INFO - Connected to PostgreSQL database successfully
+[2024-06-28T22:20:35.044+0000] {Table_creation.py:45} INFO - Data loaded successfully into table DimVendor With 2 Row
+[2024-06-28T22:20:35.045+0000] {db_utils.py:30} INFO - PostgreSQL connection is closed
+[2024-06-28T22:20:35.045+0000] {Load_Data.py:14} INFO - Dimvedor_df dimension loaded successfully
+[2024-06-28T22:20:35.045+0000] {Load_Data.py:106} INFO - loading trip_type dimension....
+[2024-06-28T22:20:35.047+0000] {Table_creation.py:30} INFO - Loading data into table DimTrip_type...
+[2024-06-28T22:20:35.049+0000] {db_utils.py:21} INFO - Connected to PostgreSQL database successfully
+[2024-06-28T22:20:35.054+0000] {Table_creation.py:45} INFO - Data loaded successfully into table DimTrip_type With 2 Row
+[2024-06-28T22:20:35.055+0000] {db_utils.py:30} INFO - PostgreSQL connection is closed
+[2024-06-28T22:20:35.055+0000] {Load_Data.py:109} INFO - trip_df dimension loaded successfully
+[2024-06-28T22:20:35.055+0000] {Load_Data.py:124} INFO - loading fact table ....
+[2024-06-28T22:20:38.778+0000] {Table_creation.py:30} INFO - Loading data into table Fact_Trip...
+[2024-06-28T22:20:38.781+0000] {db_utils.py:21} INFO - Connected to PostgreSQL database successfully
+[2024-06-28T22:20:54.667+0000] {local_task_job_runner.py:310} WARNING - State of this instance has been externally set to failed. Terminating instance.
+[2024-06-28T22:20:54.669+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-28T22:20:54.671+0000] {process_utils.py:132} INFO - Sending 15 to group 439. PIDs of all processes in the group: [439]
+[2024-06-28T22:20:54.672+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 439
+[2024-06-28T22:20:54.672+0000] {taskinstance.py:2611} ERROR - Received SIGTERM. Terminating subprocesses.
+[2024-06-28T22:20:54.677+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-28T22:20:54.965+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=439, status='terminated', exitcode=0, started='22:20:34') (439) terminated with exit code 0

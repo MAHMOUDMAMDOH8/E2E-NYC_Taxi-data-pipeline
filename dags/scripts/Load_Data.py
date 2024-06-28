@@ -20,6 +20,8 @@ def load_DimLocation(host, db_name, user, password):
         logging.info('Loading location Dimension ...')
         DimLocation_df = pd.read_csv('./datalake/silver/DimLocation.csv')
         current_date = datetime.now().date()
+        DimLocation_df.columns = DimLocation_df.columns.str.lower()
+
         # Connect to the database
         conn = create_connection(host, db_name, user, password)
         if not conn:
@@ -27,42 +29,51 @@ def load_DimLocation(host, db_name, user, password):
 
         cursor = conn.cursor()
         
-        # Load existing DimLocation table
-        cursor.execute("SELECT * FROM DimLocation WHERE active_flag = 'Y'")
+        # Load all existing DimLocation records
+        cursor.execute("SELECT * FROM DimLocation")
         existing_df = pd.DataFrame(cursor.fetchall(), columns=[desc[0] for desc in cursor.description])
+        existing_df.columns = existing_df.columns.str.lower()  # Ensure columns are lower case
+        logging.info(f"Existing records columns: {existing_df.columns.tolist()}")
+
         new_records = []
+        updated_records = []
 
         for i, row in DimLocation_df.iterrows():
-            # Check if the record exists and is active
-            existing_record = existing_df[(existing_df['locationid'] == row['locationid']) & (existing_df['active_flag'] == 'y')]
+            # Check if the record exists
+            existing_records = existing_df[existing_df['locationid'] == row['locationid']]
 
-            if not existing_record.empty:
-                existing_record = existing_record.iloc[0]
-                # Check if there are any changes
-                if (existing_record['borough'] != row['borough'] or
-                    existing_record['zone'] != row['zone'] or
-                    existing_record['service_zone'] != row['service_zone']):
+            if not existing_records.empty:
+                # Record exists, check for updates
+                for idx, existing_record in existing_records.iterrows():
+                    # Check if there are any changes
+                    if (existing_record['borough'] != row['borough'] or
+                        existing_record['zone'] != row['zone'] or
+                        existing_record['service_zone'] != row['service_zone']):
 
-                    # End date the existing record
-                    cursor.execute(f"""
-                        UPDATE DimLocation
-                        SET end_date = %s, active_flag = 'N'
-                        WHERE locationid = %s AND active_flag = 'Y'
-                    """, (current_date, row['locationid']))
-
-                    # Prepare the new version of the record
-                    new_records.append({
-                        'locationid': row['locationid'],
-                        'borough': row['borough'],
-                        'zone': row['zone'],
-                        'service_zone': row['service_zone'],
-                        'start_date': current_date,
-                        'end_date': None,
-                        'active_flag': 'Y',
-                        'version': existing_record['version'] + 1
-                    })
+                        # End date the existing active record
+                        if existing_record['active_flag'] == 'Y':
+                            query = """
+                                UPDATE DimLocation
+                                SET end_date = %s, active_flag = 'N'
+                                WHERE locationid = %s AND active_flag = 'Y'
+                            """
+                            params = (current_date, row['locationid'])
+                            execute_query(conn, query, params, 'DimLocation')
+                            logging.info('Updated row')
+                                                        
+                        # Prepare the new version of the record
+                        new_records.append({
+                            'locationid': row['locationid'],
+                            'borough': row['borough'],
+                            'zone': row['zone'],
+                            'service_zone': row['service_zone'],
+                            'start_date': current_date,
+                            'end_date': None,
+                            'active_flag': 'Y',
+                            'version': existing_record['version'] + 1
+                        })
             else:
-                # Prepare the new record
+                # Prepare the new record if it doesn't exist in DWH
                 new_records.append({
                     'locationid': row['locationid'],
                     'borough': row['borough'],
@@ -73,12 +84,11 @@ def load_DimLocation(host, db_name, user, password):
                     'active_flag': 'Y',
                     'version': 1
                 })
-        
-        close_connection(conn)
+        close_connection(conn)        
         # Insert all new records
         if new_records:
             new_records_df = pd.DataFrame(new_records)
-            load_to_postres("DimLocation", new_records_df, host, db_name, user, password)
+            load_scd_to_postres("DimLocation", new_records_df, host, db_name, user, password)
 
         logging.info('DimLocation dimension loaded successfully')
         close_connection(conn)

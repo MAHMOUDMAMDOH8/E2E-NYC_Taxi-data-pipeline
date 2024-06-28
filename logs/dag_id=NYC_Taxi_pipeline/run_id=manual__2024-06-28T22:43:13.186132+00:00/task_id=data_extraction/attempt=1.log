@@ -1,0 +1,21 @@
+[2024-06-28T22:43:16.043+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-28T22:43:16.063+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: NYC_Taxi_pipeline.data_extraction manual__2024-06-28T22:43:13.186132+00:00 [queued]>
+[2024-06-28T22:43:16.072+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: NYC_Taxi_pipeline.data_extraction manual__2024-06-28T22:43:13.186132+00:00 [queued]>
+[2024-06-28T22:43:16.072+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-06-28T22:43:16.084+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): data_extraction> on 2024-06-28 22:43:13.186132+00:00
+[2024-06-28T22:43:16.090+0000] {standard_task_runner.py:63} INFO - Started process 463 to run task
+[2024-06-28T22:43:16.093+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'NYC_Taxi_pipeline', 'data_extraction', 'manual__2024-06-28T22:43:13.186132+00:00', '--job-id', '163', '--raw', '--subdir', 'DAGS_FOLDER/NYC_Taxi_pipeline.py', '--cfg-path', '/tmp/tmpxoxbsdie']
+[2024-06-28T22:43:16.095+0000] {standard_task_runner.py:91} INFO - Job 163: Subtask data_extraction
+[2024-06-28T22:43:16.137+0000] {task_command.py:426} INFO - Running <TaskInstance: NYC_Taxi_pipeline.data_extraction manual__2024-06-28T22:43:13.186132+00:00 [running]> on host 79a59ce16f65
+[2024-06-28T22:43:16.381+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Mahmoud' AIRFLOW_CTX_DAG_ID='NYC_Taxi_pipeline' AIRFLOW_CTX_TASK_ID='data_extraction' AIRFLOW_CTX_EXECUTION_DATE='2024-06-28T22:43:13.186132+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-28T22:43:13.186132+00:00'
+[2024-06-28T22:43:16.383+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-28T22:43:16.394+0000] {NYC_Taxi_pipeline.py:45} INFO - data_extraction started
+[2024-06-28T22:43:16.395+0000] {Transfrom_data.py:8} INFO - start for transforming data ......
+[2024-06-28T22:43:16.395+0000] {Transfrom_data.py:53} INFO - Process of trip data completed successfully
+[2024-06-28T22:43:16.395+0000] {NYC_Taxi_pipeline.py:47} INFO - data_extraction done
+[2024-06-28T22:43:16.396+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-06-28T22:43:16.396+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-28T22:43:16.407+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=NYC_Taxi_pipeline, task_id=data_extraction, run_id=manual__2024-06-28T22:43:13.186132+00:00, execution_date=20240628T224313, start_date=20240628T224316, end_date=20240628T224316
+[2024-06-28T22:43:16.465+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-28T22:43:16.488+0000] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-06-28T22:43:16.489+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

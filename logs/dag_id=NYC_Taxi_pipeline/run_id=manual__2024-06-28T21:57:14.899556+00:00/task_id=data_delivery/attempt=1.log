@@ -1,0 +1,25 @@
+[2024-06-28T21:57:19.662+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-28T21:57:19.687+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: NYC_Taxi_pipeline.data_delivery manual__2024-06-28T21:57:14.899556+00:00 [queued]>
+[2024-06-28T21:57:19.699+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: NYC_Taxi_pipeline.data_delivery manual__2024-06-28T21:57:14.899556+00:00 [queued]>
+[2024-06-28T21:57:19.699+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-06-28T21:57:19.713+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): data_delivery> on 2024-06-28 21:57:14.899556+00:00
+[2024-06-28T21:57:19.720+0000] {standard_task_runner.py:63} INFO - Started process 376 to run task
+[2024-06-28T21:57:19.723+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'NYC_Taxi_pipeline', 'data_delivery', 'manual__2024-06-28T21:57:14.899556+00:00', '--job-id', '134', '--raw', '--subdir', 'DAGS_FOLDER/NYC_Taxi_pipeline.py', '--cfg-path', '/tmp/tmpy_7bqxg0']
+[2024-06-28T21:57:19.726+0000] {standard_task_runner.py:91} INFO - Job 134: Subtask data_delivery
+[2024-06-28T21:57:19.784+0000] {task_command.py:426} INFO - Running <TaskInstance: NYC_Taxi_pipeline.data_delivery manual__2024-06-28T21:57:14.899556+00:00 [running]> on host 79a59ce16f65
+[2024-06-28T21:57:20.073+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Mahmoud' AIRFLOW_CTX_DAG_ID='NYC_Taxi_pipeline' AIRFLOW_CTX_TASK_ID='data_delivery' AIRFLOW_CTX_EXECUTION_DATE='2024-06-28T21:57:14.899556+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-28T21:57:14.899556+00:00'
+[2024-06-28T21:57:20.075+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-28T21:57:20.084+0000] {NYC_Taxi_pipeline.py:54} INFO - data_delivery started
+[2024-06-28T21:57:20.085+0000] {Load_Data.py:20} INFO - Loading location Dimension ...
+[2024-06-28T21:57:20.091+0000] {db_utils.py:21} INFO - Connected to PostgreSQL database successfully
+[2024-06-28T21:57:20.094+0000] {Load_Data.py:36} INFO - Existing records columns: ['locationid', 'borough', 'zone', 'service_zone', 'start_date', 'end_date', 'active_flag', 'version']
+[2024-06-28T21:57:20.230+0000] {Table_creation.py:30} INFO - Loading data into table DimLocation...
+[2024-06-28T21:57:20.233+0000] {db_utils.py:21} INFO - Connected to PostgreSQL database successfully
+[2024-06-28T21:57:50.016+0000] {local_task_job_runner.py:310} WARNING - State of this instance has been externally set to failed. Terminating instance.
+[2024-06-28T21:57:50.018+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-28T21:57:50.019+0000] {process_utils.py:132} INFO - Sending 15 to group 376. PIDs of all processes in the group: [376]
+[2024-06-28T21:57:50.019+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 376
+[2024-06-28T21:58:50.058+0000] {process_utils.py:150} WARNING - process psutil.Process(pid=376, name='airflow task ru', status='sleeping', started='21:57:19') did not respond to SIGTERM. Trying SIGKILL
+[2024-06-28T21:58:50.061+0000] {process_utils.py:87} INFO - Sending the signal 9 to group 376
+[2024-06-28T21:58:50.076+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=376, name='airflow task ru', status='terminated', exitcode=<Negsignal.SIGKILL: -9>, started='21:57:19') (376) terminated with exit code -9
+[2024-06-28T21:58:50.078+0000] {standard_task_runner.py:178} ERROR - Job 134 was killed before it finished (likely due to running out of memory)

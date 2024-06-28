@@ -1,9 +1,9 @@
 locationid,borough,zone,service_zone
-1,EWR,Newark Airport,EWR
+1,EW,Newark Airport,EWR
 2,Queens,Jamaica Bay,Boro Zone
 3,Bronx,Allerton/Pelham Gardens,Boro Zone
 4,Manhattan,Alphabet City,Yellow Zone
-5,Staten Island,Arden Heights,Boro Zone
+5,Staten Island,Arden Heights,Yellow Zone
 6,Staten Island,Arrochar/Fort Wadsworth,Boro Zone
 7,Queens,Astoria,Boro Zone
 8,Queens,Astoria Park,Boro Zone

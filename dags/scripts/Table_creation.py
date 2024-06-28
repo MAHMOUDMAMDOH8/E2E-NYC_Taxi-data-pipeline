@@ -18,7 +18,7 @@ def creat_tables(host,db_name,user,password):
     if conn:
         cursor = conn.cursor()
         for query,table in Querys:
-            if execute_query(conn,query,table):
+            if execute_query(connection=conn,query=query,table_name=table,params=None):
                 logging.info(f'Table {table} created successfully')
             else:
                 logging.info(f'Failed to create table {table}')
@@ -41,6 +41,27 @@ def load_to_postres(table_name,data_frame,host,db_name,user,password):
             insert_query = f"INSERT INTO {table_name} ({cols}) VALUES ({vals})"
             cursor.execute(insert_query, tuple(row))
             Row += 1
+        conn.commit()
+        logging.info(f"Data loaded successfully into table {table_name} With {Row} Row")
+        close_connection(conn)
+    else:
+        logging.error(f"Failed to connect to the database and load data into table {table_name}")
+
+def load_scd_to_postres(table_name,data_frame,host,db_name,user,password):
+    logging.info(f'Loading data into table {table_name}...')
+    conn = create_connection(host,db_name,user,password)
+
+    if conn:
+        cursor = conn.cursor()
+        # Insert new data
+        Row = 0
+        for i, row in data_frame.iterrows():
+            cols = ', '.join(list(row.index))
+            vals = ', '.join(['%s'] * len(row))
+            insert_query = f"INSERT INTO {table_name} ({cols}) VALUES ({vals})"
+            cursor.execute(insert_query, tuple(row))
+            Row += 1
+            logging.info('insert new row to dimlocation')
         conn.commit()
         logging.info(f"Data loaded successfully into table {table_name} With {Row} Row")
         close_connection(conn)

@@ -59,3 +59,13 @@
 [2024-06-28T23:09:17.059+0000] {Load_Data.py:128} INFO - loading fact table ....
 [2024-06-28T23:09:20.512+0000] {Table_creation.py:30} INFO - Loading data into table Fact_Trip...
 [2024-06-28T23:09:20.516+0000] {db_utils.py:21} INFO - Connected to PostgreSQL database successfully
+[2024-06-28T23:12:41.406+0000] {Table_creation.py:45} INFO - Data loaded successfully into table Fact_Trip With 618792 Row
+[2024-06-28T23:12:41.407+0000] {db_utils.py:30} INFO - PostgreSQL connection is closed
+[2024-06-28T23:12:47.763+0000] {Load_Data.py:150} INFO - Fact_df  loaded successfully
+[2024-06-28T23:12:47.799+0000] {NYC_Taxi_pipeline.py:61} INFO - data_delivery done
+[2024-06-28T23:12:47.799+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-06-28T23:12:47.800+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-28T23:12:47.809+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=NYC_Taxi_pipeline, task_id=data_delivery, run_id=manual__2024-06-28T23:09:12.688450+00:00, execution_date=20240628T230912, start_date=20240628T230916, end_date=20240628T231247
+[2024-06-28T23:12:47.858+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-28T23:12:47.875+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-28T23:12:47.877+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

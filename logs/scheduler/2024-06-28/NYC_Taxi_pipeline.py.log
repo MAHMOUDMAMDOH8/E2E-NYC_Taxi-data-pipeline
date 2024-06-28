@@ -4064,3 +4064,17 @@ SyntaxError: invalid syntax
 [2024-06-28T23:11:48.227+0000] {logging_mixin.py:188} INFO - [2024-06-28T23:11:48.226+0000] {dag.py:3096} INFO - Sync 1 DAGs
 [2024-06-28T23:11:48.251+0000] {logging_mixin.py:188} INFO - [2024-06-28T23:11:48.251+0000] {dag.py:3954} INFO - Setting next_dagrun for NYC_Taxi_pipeline to 2024-06-28T00:00:00+00:00, run_after=2024-06-29T00:00:00+00:00
 [2024-06-28T23:11:48.270+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/NYC_Taxi_pipeline.py took 0.795 seconds
+[2024-06-28T23:12:18.428+0000] {processor.py:161} INFO - Started process (PID=4958) to work on /opt/airflow/dags/NYC_Taxi_pipeline.py
+[2024-06-28T23:12:18.430+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/NYC_Taxi_pipeline.py for tasks to queue
+[2024-06-28T23:12:18.431+0000] {logging_mixin.py:188} INFO - [2024-06-28T23:12:18.431+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/NYC_Taxi_pipeline.py
+[2024-06-28T23:12:19.186+0000] {processor.py:840} INFO - DAG(s) 'NYC_Taxi_pipeline' retrieved from /opt/airflow/dags/NYC_Taxi_pipeline.py
+[2024-06-28T23:12:19.220+0000] {logging_mixin.py:188} INFO - [2024-06-28T23:12:19.219+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-28T23:12:19.251+0000] {logging_mixin.py:188} INFO - [2024-06-28T23:12:19.251+0000] {dag.py:3954} INFO - Setting next_dagrun for NYC_Taxi_pipeline to 2024-06-28T00:00:00+00:00, run_after=2024-06-29T00:00:00+00:00
+[2024-06-28T23:12:19.279+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/NYC_Taxi_pipeline.py took 0.861 seconds
+[2024-06-28T23:12:49.445+0000] {processor.py:161} INFO - Started process (PID=4967) to work on /opt/airflow/dags/NYC_Taxi_pipeline.py
+[2024-06-28T23:12:49.445+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/NYC_Taxi_pipeline.py for tasks to queue
+[2024-06-28T23:12:49.446+0000] {logging_mixin.py:188} INFO - [2024-06-28T23:12:49.446+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/NYC_Taxi_pipeline.py
+[2024-06-28T23:12:50.005+0000] {processor.py:840} INFO - DAG(s) 'NYC_Taxi_pipeline' retrieved from /opt/airflow/dags/NYC_Taxi_pipeline.py
+[2024-06-28T23:12:50.030+0000] {logging_mixin.py:188} INFO - [2024-06-28T23:12:50.030+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-28T23:12:50.055+0000] {logging_mixin.py:188} INFO - [2024-06-28T23:12:50.055+0000] {dag.py:3954} INFO - Setting next_dagrun for NYC_Taxi_pipeline to 2024-06-28T00:00:00+00:00, run_after=2024-06-29T00:00:00+00:00
+[2024-06-28T23:12:50.073+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/NYC_Taxi_pipeline.py took 0.636 seconds

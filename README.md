@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 =======
 # Comprehensive NYC Taxi trip Data Pipeline
 

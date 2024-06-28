@@ -1,5 +1,4 @@
 
-=======
 # Comprehensive NYC Taxi trip Data Pipeline
 
 The pipeline should combine generated trip data with data from external sources, perform data
@@ -74,10 +73,3 @@ The transformed data is stored in a relational database with a star schema desig
 ![zone](https://github.com/MAHMOUDMAMDOH8/E2E-NYC_Taxi-data-pipeline/assets/111503676/5aa52697-a4cc-43b4-b48a-95d7e6274546)
 
 
-
-
-
-
-
-
->>>>>>> a3112fd5772778e0c8c8e7d8ca19ce46344203da

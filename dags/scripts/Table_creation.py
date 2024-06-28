@@ -32,7 +32,6 @@ def load_to_postres(table_name,data_frame,host,db_name,user,password):
 
     if conn:
         cursor = conn.cursor()
-        cursor.execute(f"TRUNCATE TABLE {table_name} RESTART IDENTITY;")
         # Insert new data
         Row = 0
         for i, row in data_frame.iterrows():

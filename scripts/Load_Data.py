@@ -5,23 +5,140 @@ import datetime as datetime
 
 logging.basicConfig(filename='data_delivery.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
+# load dimvendor
 def load_dimVendor(host,db_name,user,password):
     try:
-        logging.info('loading vendor Dimension ...')
+        logging.info('Loading vendor Dimension ...')
         vendor_df = pd.read_csv('./datalake/silver/Dimvendor.csv')
-        load_to_postres("DimVendor",vendor_df,host,db_name,user,password)
-        logging.info('vendor_df dimension loaded successfully')
+        
+        # Connect to the database
+        conn = create_connection(host, db_name, user, password)
+        if not conn:
+            raise Exception("Connection to database failed")
+
+        cursor = conn.cursor()
+        
+        # Load existing DimVendor table
+        cursor.execute("SELECT * FROM DimVendor WHERE active_flag = 'Y'")
+        existing_records = cursor.fetchall()
+        columns = [desc[0] for desc in cursor.description]
+        existing_df = pd.DataFrame(existing_records, columns=columns)
+
+        new_records = []
+
+        for i, row in vendor_df.iterrows():
+            # Check if the record exists and is active
+            existing_record = existing_df[(existing_df['vendor_id'] == row['vendor_id']) & (existing_df['active_flag'] == 'Y')]
+
+            if not existing_record.empty:
+                existing_record = existing_record.iloc[0]
+                # Check if  any changes
+                if existing_record['vendor_name'] != row['vendor_name']:
+                    cursor.execute(f"""
+                        UPDATE DimVendor
+                        SET end_date = %s, active_flag = 'N'
+                        WHERE vendor_id = %s AND active_flag = 'Y'
+                    """, (row['load_date'], row['vendor_id']))
+
+                    new_records.append({
+                        'vendor_id': row['vendor_id'],
+                        'vendor_name': row['vendor_name'],
+                        'start_date': row['load_date'],
+                        'end_date': None,
+                        'active_flag': 'Y',
+                        'version': existing_record['version'] + 1
+                    })
+            else:
+                new_records.append({
+                    'vendor_id': row['vendor_id'],
+                    'vendor_name': row['vendor_name'],
+                    'start_date': row['load_date'],
+                    'end_date': None,
+                    'active_flag': 'Y',
+                    'version': 1
+                })
+
+        # Insert all new records
+        if new_records:
+            new_records_df = pd.DataFrame(new_records)
+            load_to_postres("DimVendor", new_records_df, host, db_name, user, password, append=True)
+
+        logging.info('Vendor dimension loaded successfully')
+        close_connection(conn)
     except Exception as E:
         logging.info(f'Error loading vendor dimension: {str(E)}')
 
-def load_DimLocation(host,db_name,user,password):
+def load_DimLocation(host, db_name, user, password):
     try:
-        logging.info('loading location Dimension ...')
+        logging.info('Loading location Dimension ...')
         DimLocation_df = pd.read_csv('./datalake/silver/DimLocation.csv')
-        load_to_postres("DimLocation",DimLocation_df,host,db_name,user,password)
-        logging.info('DimLocation_df dimension loaded successfully')
+        
+        # Connect to the database
+        conn = create_connection(host, db_name, user, password)
+        if not conn:
+            raise Exception("Connection to database failed")
+
+        cursor = conn.cursor()
+        
+        # Load existing DimLocation table
+        cursor.execute("SELECT * FROM DimLocation WHERE active_flag = 'Y'")
+        existing_records = cursor.fetchall()
+        columns = [desc[0] for desc in cursor.description]
+        existing_df = pd.DataFrame(existing_records, columns=columns)
+
+        new_records = []
+
+        for i, row in DimLocation_df.iterrows():
+            # Check if the record exists and is active
+            existing_record = existing_df[(existing_df['LocationID'] == row['LocationID']) & (existing_df['active_flag'] == 'Y')]
+
+            if not existing_record.empty:
+                existing_record = existing_record.iloc[0]
+                # Check if there are any changes
+                if (existing_record['Borough'] != row['Borough'] or
+                    existing_record['Zone'] != row['Zone'] or
+                    existing_record['service_zone'] != row['service_zone']):
+
+                    # End date the existing record
+                    cursor.execute(f"""
+                        UPDATE DimLocation
+                        SET end_date = %s, active_flag = 'N'
+                        WHERE LocationID = %s AND active_flag = 'Y'
+                    """, (row['start_date'], row['LocationID']))
+
+                    # Prepare the new version of the record
+                    new_records.append({
+                        'LocationID': row['LocationID'],
+                        'Borough': row['Borough'],
+                        'Zone': row['Zone'],
+                        'service_zone': row['service_zone'],
+                        'start_date': row['start_date'],
+                        'end_date': None,
+                        'active_flag': 'Y',
+                        'version': existing_record['version'] + 1
+                    })
+            else:
+                # Prepare the new record
+                new_records.append({
+                    'LocationID': row['LocationID'],
+                    'Borough': row['Borough'],
+                    'Zone': row['Zone'],
+                    'service_zone': row['service_zone'],
+                    'start_date': row['start_date'],
+                    'end_date': None,
+                    'active_flag': 'Y',
+                    'version': 1
+                })
+
+        # Insert all new records
+        if new_records:
+            new_records_df = pd.DataFrame(new_records)
+            load_to_postres("DimLocation", new_records_df, host, db_name, user, password, append=True)
+
+        logging.info('DimLocation dimension loaded successfully')
+        close_connection(conn)
     except Exception as E:
-        logging.info(f'Error loading Location dimension: {str(E)}')
+        logging.info(f'Error loading location dimension: {str(E)}')
 
 def load_DimRate(host,db_name,user,password):
     try:

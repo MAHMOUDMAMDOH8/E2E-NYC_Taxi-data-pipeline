@@ -16,8 +16,8 @@ def process_Trip_Data():
         # Define conditions 
         df = df[(df['passenger_count'] > 0) & (df['trip_distance'] > 0)]
         Vendor_conditions = df['VendorID'].isin([1, 2])
-        Rate_condition = df['RatecodeID'].isin([1, 2, 3, 4, 5, 6])
-        Payment_conditions = df['payment_type'].isin([1, 2, 3, 4])
+        Rate_condition = df['RatecodeID'].between(1,6)
+        Payment_conditions = df['payment_type'].between(1,4)
         Trip_conditions = df['trip_type'].isin([1, 2])
         PULLocation_conditions = df['PULocationID'].between(1, 265)
         dropLocation_conditions = df['DOLocationID'].between(1, 265)

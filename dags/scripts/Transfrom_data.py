@@ -9,33 +9,15 @@ def process_Trip_Data():
 
     valid_data_frames = []
     rejected_rows = []
-    Taxi_Dtype = {
-        'VendorID': pd.Int64Dtype(),
-        'passenger_count': pd.Int64Dtype(),
-        'trip_distance': float,
-        'RatecodeID': pd.Int64Dtype(),
-        'store_and_fwd_flag': str,
-        'PULocationID': pd.Int64Dtype(),
-        'DOLocationID': pd.Int64Dtype(),
-        'payment_type': pd.Int64Dtype(),
-        'fare_amount': float,
-        'extra': float,
-        'mta_tax': float,
-        'tip_amount': float,
-        'tolls_amount': float,
-        'improvement_surcharge': float,
-        'total_amount': float,
-        'congestion_surcharge': float
-    }
 
     for file in csv_files:
-        df = pd.read_csv(file,dtype=Taxi_Dtype)
+        df = pd.read_csv(file)
 
         # Define conditions 
         df = df[(df['passenger_count'] > 0) & (df['trip_distance'] > 0)]
         Vendor_conditions = df['VendorID'].isin([1, 2])
-        Rate_condition = df['RatecodeID'].isin([1, 2, 3, 4, 5, 6])
-        Payment_conditions = df['payment_type'].isin([1, 2, 3, 4])
+        Rate_condition = df['RatecodeID'].between(1,6)
+        Payment_conditions = df['payment_type'].between(1,4)
         Trip_conditions = df['trip_type'].isin([1, 2])
         PULLocation_conditions = df['PULocationID'].between(1, 265)
         dropLocation_conditions = df['DOLocationID'].between(1, 265)

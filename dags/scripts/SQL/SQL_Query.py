@@ -1,7 +1,12 @@
 create_DimVendor = """
 CREATE TABLE IF NOT EXISTS DimVendor(
-        vendor_id int primary key,
-        vendor_name varchar(225)
+        vendor_id int ,
+        vendor_name varchar(225),
+        start_date DATE,
+        end_date DATE,
+        active_flag CHAR(1),
+        version INT,
+        PRIMARY KEY (vendor_id, version) 
     )
 """
 
@@ -14,17 +19,22 @@ CREATE TABLE IF NOT EXISTS DimTrip_type(
 
 create_Dimpayment = """
 CREATE TABLE IF NOT EXISTS DimPayment(
-        Payment_ID int primary key ,
+        Payment_ID int primary key,
         Payment_type varchar(225)
 )
 """
 
 create_DimLocation = """
 CREATE TABLE IF NOT EXISTS DimLocation(
-        LocationID int primary key ,
+        LocationID int ,
         Borough varchar(225) ,
         Zone varchar(225),
-        service_zone varchar(225)
+        service_zone varchar(225),
+        start_date DATE,
+        end_date DATE,
+        active_flag CHAR(1),
+        version INT,
+        PRIMARY KEY (LocationID, version) 
 )
 """
 

@@ -6,7 +6,7 @@ from psycopg2 import Error
 
 
 logging.basicConfig(
-    level=logging.INFO,
+    level= logging.INFO(),
     format= '%(asctime)s - %(levelname)s - %(message)s'
 )
 
